@@ -19,8 +19,8 @@ def do_pack():
 
     # Create the name of the archive file
     now = datetime.now()
-    archive_name = 'versions/web_static_{}{}{}{}{}{}.tgz'.format(
-        now.year, now.month, now.day, now.hour, now.minute, now.second)
+    formatted_date = now.strftime("%Y%m%d%H%M%S")
+    archive_name = 'versions/web_static_{}.tgz'.format(formatted_date)
 
     # Compress the web_static folder into the archive
     result = local("tar -cvzf {} web_static".format(archive_name))
