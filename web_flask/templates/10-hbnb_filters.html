@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBNB Filters</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/4-common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="clearfix">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <h1>HBNB</h1>
+        </div>
+    </header>
+
+    <!-- Filters Section -->
+    <section class="container">
+        <div class="amenities">
+            <h2>Amenities</h2>
+            <div class="popover">
+                {% for amenity in amenities %}
+                    <div class="checkbox">
+                        <input type="checkbox" name="amenity" id="{{ amenity.id }}">
+                        <label for="{{ amenity.id }}">{{ amenity.name }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="locations">
+            <h2>States</h2>
+            <div class="popover">
+                {% for state in states %}
+                    <div class="checkbox">
+                        <input type="checkbox" name="state" id="{{ state.id }}">
+                        <label for="{{ state.id }}">{{ state.name }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <h2>Cities</h2>
+            <div class="popover">
+                {% for city in cities %}
+                    <div class="checkbox">
+                        <input type="checkbox" name="city" id="{{ city.id }}">
+                        <label for="{{ city.id }}">{{ city.name }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Holberton School | AirBnB clone</p>
+        </div>
+    </footer>
+</body>
+</html>
